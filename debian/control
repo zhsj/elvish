@@ -1,0 +1,21 @@
+Source: elvish
+Section: shells
+Priority: optional
+Maintainer: Shengjing Zhu <i@zhsj.me>,
+Build-Depends: debhelper (>= 10),
+               golang-1.9,
+Standards-Version: 4.1.3
+Homepage: https://github.com/elves/elvish
+Vcs-Browser: https://github.com/elves/elvish
+Vcs-Git: https://github.com/elves/elvish.git
+
+Package: elvish
+Architecture: any
+Built-Using: ${misc:Built-Using},
+Depends: ${misc:Depends},
+         ${shlibs:Depends},
+Description: Friendly and expressive shell
+ Elvish is a cross-platform shell, supporting Linux, BSDs and Windows.
+ It features an expressive programming language, with features like namespacing
+ and anonymous functions, and a fully programmable user interface with friendly
+ defaults. It is suitable for both interactive use and scripting.

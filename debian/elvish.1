@@ -1,0 +1,68 @@
+.TH elvish 1 "Jan 16, 2018" "elvish 0.11"
+
+.SH NAME
+elvish - Friendly and expressive shell
+
+.SH SYNOPSIS
+.B elvish [flags] [script]
+
+.SH FLAGS
+.TP
+-bin string
+path to the elvish binary
+.TP
+-buildinfo
+show build info and quit
+.TP
+-c
+take first argument as a command to execute
+.TP
+-compileonly
+Parse/Compile but do not execute
+.TP
+-cpuprofile string
+write cpu profile to file
+.TP
+-daemon
+run daemon instead of shell
+.TP
+-db string
+path to the database
+.TP
+-help
+show usage help and quit
+.TP
+-json
+show output in JSON. Useful with -buildinfo.
+.TP
+-log string
+a file to write debug log to
+.TP
+-logprefix string
+the prefix for the daemon log file
+.TP
+-port int
+the port of the web backend (default 3171)
+.TP
+-sock string
+path to the daemon socket
+.TP
+-version
+show version and quit
+.TP
+-web
+run backend of web interface
+
+.SH DESCRIPTION
+Elvish is a cross-platform shell, supporting Linux, BSDs and Windows.
+It features an expressive programming language, with features like
+namespacing and anonymous functions, and a fully programmable user
+interface with friendly defaults. It is suitable for both interactive
+use and scripting.
+
+.SH SEE ALSO
+.B https://elvish.io
+
+.SH AUTHOR
+This manual page was written by Shengjing Zhu <i@zhsj.me>,
+for the Debian GNU/Linux system (but may be used by others).

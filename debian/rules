@@ -1,0 +1,25 @@
+#!/usr/bin/make -f
+
+include /usr/share/dpkg/default.mk
+
+BUILDPKG   := github.com/elves/elvish
+BUILDFLAGS := -ldflags\
+  "-X $(BUILDPKG)/build.Version=$(DEB_VERSION)\
+   -X $(BUILDPKG)/build.Builder=$(DEB_VENDOR)"
+
+export GOPATH := $(CURDIR)/obj-$(DEB_BUILD_GNU_TYPE)
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	mkdir -p $(GOPATH)/src/$(BUILDPKG)
+	cp -r $(filter-out obj-$(DEB_BUILD_GNU_TYPE) debian,$(wildcard *)) $(GOPATH)/src/$(BUILDPKG)/
+	/usr/lib/go-1.9/bin/go install -v $(BUILDFLAGS) $(BUILDPKG)
+
+override_dh_auto_install:
+	mkdir -p debian/tmp/usr/bin
+	install -m755 $(GOPATH)/bin/elvish debian/tmp/usr/bin/
+
+override_dh_auto_test:
+	/usr/lib/go-1.9/bin/go test -v $(BUILDPKG)/...
